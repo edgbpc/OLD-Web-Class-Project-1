@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+
+    <title>Crowd Sourcing a Novel - an Experiment</title>
+	
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+
+	<link href="jquery-bootstrap-datepicker.css" rel="stylesheet">
+
+    
+  </head>
+
+  <body>
+
+    <header class="navbar-inverse navbar-fixed-top">
+      <div class="container text-center">
+       <div class="navbar col-md-12 col-sm-12 col-xs-12">
+          Crowd Sourcing Novel Project
+        <!-- Commenting out Code for possible future use
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+          -->
+        </div>
+      </div>
+      
+    </header>
+
+   <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2">
+          <ul class="nav nav-sidebar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="registration.html">Registration</a></li>
+          </ul>
+		</div> 
+
+        <div id="" class="col-sm-9 col-md-10">
+			<h1 class="page-header">Registration</h1>
+			<div id="formwrapper">
+				<form onsubmit="return validateFields();">
+	<div class="form-group">
+	<input type="text" class="" id="username" maxlength="50" placeholder="Username" required onblur="">
+    <input type="email" class="" id="email" maxlength="255" placeholder="Email Address" required onblur="">
+	</div> 
+    <div class="form-group">
+		<input type="text" class="" id="firstname" maxlength="50" placeholder="First Name" required>
+		<input type="text" class="" id="lastname" maxlength="50" placeholder="Last Name" required>
+	</div> 
+    <div class="form-group">
+		<input type="text" class="" id="pwd" maxlength="50" placeholder="Password"  onblur="" required>    
+		<input type="password" class="" id="verifypwd" maxlength="50" placeholder="Verify Password" onblur="" required>
+	</div> 
+    <div class="form-group">
+		<input type="text" class="" id="telephone" maxlength="13" placeholder="Phone Number" onkeyup="formatPhone(this);" required>    
+	</div> 
+	<div class="form-group">
+		<input type="text" class="" id="Address1" maxlength="100" placeholder="Address Line 1" required>   
+		<input type="text" class="" id="Address2" maxlength="100" placeholder="Address Line 2 - Optional"> 
+	</div> 
+	<div class="form-group">
+		<input type="text" class="" id="City" maxlength="50" placeholder="City" required>    
+     	<select class="form-group">
+		 
+		  <option>State</option>
+		  <option>AL</option>
+		  <option>AK</option>
+		  <option>AZ</option>
+		  <option>AR</option>
+		  <option>CA</option>
+		  <option>CO</option>
+		  <option>CT</option>
+		  <option>DC</option>
+		  <option>DE</option>
+		  <option>FL</option>
+		  <option>GA</option>
+		  <option>HI</option>
+		  <option>ID</option>
+		  <option>IL</option>
+		  <option>IN</option>
+		  <option>IA</option>
+		  <option>KS</option>
+		  <option>KY</option>
+		  <option>LA</option>
+		  <option>ME</option>
+		  <option>MD</option>
+		  <option>MA</option>
+		  <option>MI</option>
+		  <option>MN</option>
+		  <option>MS</option>
+		  <option>MO</option>
+		  <option>MT</option>
+		  <option>NE</option>
+		  <option>NV</option>
+		  <option>NH</option>
+		  <option>NJ</option>
+		  <option>NM</option>
+		  <option>NY</option>
+		  <option>NC</option>
+		  <option>ND</option>
+		  <option>OH</option>
+		  <option>OK</option>
+		  <option>OR</option>
+		  <option>PA</option>
+		  <option>RI</option>
+		  <option>SC</option>
+		  <option>SD</option>
+		  <option>TN</option>
+		  <option>TX</option>
+		  <option>UT</option>
+		  <option>VT</option>
+		  <option>VA</option>
+		  <option>WA</option>
+		  <option>WV</option>
+		  <option>WI</option>
+		  <option>WY</option>
+
+		</select>
+	</div>
+	<div class="form-group">
+		<input type class="text" class="" id="zipCode" maxlength="10" placeholder="Zip Code"  onkeyup="formatZipCode(this);" required />
+		<input type="text" id="datepicker" placeholder="date">
+	</div>
+	<div class="radio">
+		<label for="male"><input type="radio" id="male" name="genderradio" maxlength="50">Male</label>
+		<label for="female"><input type="radio" id="female" name="genderradio" maxlength="50">Female</label>
+	</div>
+	<div class="radio">
+		<label for="married"><input type="radio" id="married" name="marriedradio" maxlength="50">Married</label>
+		<label for="not married"><input type="radio" id="notmarried" name="marriedradio" maxlength="50">Not Married</label>
+	</div>
+		
+		<button type="submit" id="submitbutton" class="btn btn-default" onclick="">Submit</button>
+		<button type="reset" class="btn btn-default">Reset</button>
+	
+</div>
+</form>
+</div>
+</div>
+</div>
+   
+<footer>
+<nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation">
+	<div class="container text-center">
+		<div class="navbar-text col-md-12 col-sm-12 col-xs-12">
+	
+		<ul>
+		<li class="footer"><a href="https://en.wikipedia.org/wiki/Crowdsourcing" target="_blank"> Crowd Sourcing</a></li>
+		<li class="footer"><a href="http://nanowrimo.org/" target="_blank">National Novel Writing Month</a></li>
+		<li class="footer"><a href="https://owl.english.purdue.edu/owl/section/1/" target="_blank">Purdue Online Writing Lab</a></li>
+		</div>
+	</div>
+</nav>
+</footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script>window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"><\/script>')</script>
+    
+		<!-- JQuery load -->
+		
+		<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+		<!-- Javascript import -->
+		<script type="text/javascript" src="scripts.js"></script>
+  </body>
+</html>

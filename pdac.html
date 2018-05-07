@@ -1,0 +1,847 @@
+
+
+
+<!--this is a search-->
+
+  
+  
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <base href="https://www.dmepdac.com/dmecsapp/jsp/newsearch.jsp">
+    <TITLE>DME Classification System</TITLE>
+    <META http-equiv="Content-Type" value="text/html; charset=iso-8859-1">
+    <link rel="Stylesheet" href="https://www.dmepdac.com/dmecsapp/jsp/css/dmecs.css" type="text/css"/>
+    <SCRIPT SRC="https://www.dmepdac.com/dmecsapp/jsp/javascript/jquery.js"/>
+    <SCRIPT SRC="https://www.dmepdac.com/dmecsapp/jsp/javascript/jqueryCustom.js"/>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_nbGroup(event, grpName) { //v6.0
+  var i,img,nbArr,args=MM_nbGroup.arguments;
+  if (event == "init" && args.length > 2) {
+    if ((img = MM_findObj(args[2])) != null && !img.MM_init) {
+      img.MM_init = true; img.MM_up = args[3]; img.MM_dn = img.src;
+      if ((nbArr = document[grpName]) == null) nbArr = document[grpName] = new Array();
+      nbArr[nbArr.length] = img;
+      for (i=4; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+        if (!img.MM_up) img.MM_up = img.src;
+        img.src = img.MM_dn = args[i+1];
+        nbArr[nbArr.length] = img;
+    } }
+  } else if (event == "over") {
+    document.MM_nbOver = nbArr = new Array();
+    for (i=1; i < args.length-1; i+=3) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = (img.MM_dn && args[i+2]) ? args[i+2] : ((args[i+1])? args[i+1] : img.MM_up);
+      nbArr[nbArr.length] = img;
+    }
+  } else if (event == "out" ) {
+    for (i=0; i < document.MM_nbOver.length; i++) {
+      img = document.MM_nbOver[i]; img.src = (img.MM_dn) ? img.MM_dn : img.MM_up; }
+  } else if (event == "down") {
+    nbArr = document[grpName];
+    if (nbArr)
+      for (i=0; i < nbArr.length; i++) { img=nbArr[i]; img.src = img.MM_up; img.MM_dn = 0; }
+    document[grpName] = nbArr = new Array();
+    for (i=2; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = img.MM_dn = (args[i+1])? args[i+1] : img.MM_up;
+      nbArr[nbArr.length] = img;
+  } }
+}
+
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+
+  function replace(string,text,by) {
+      // Replaces text with by in string
+      var strLength = string.length, txtLength = text.length;
+      if ((strLength == 0) || (txtLength == 0)) return string;
+
+      var i = string.indexOf(text);
+      if ((!i) && (text != string.substring(0,txtLength))) return string;
+      if (i == -1) return string;
+
+      var newstr = string.substring(0,i) + by;
+
+      if (i+txtLength < strLength)
+          newstr += replace(string.substring(i+txtLength,strLength),text,by);
+
+      return newstr;
+  }
+
+
+function doSearch ( s ) {
+window.location.href="http://search.palmettogba.com/palmettogba/query.html?col=pgbaprod&ht=717741247&qp=&qt=" + replace(s.value," ","+");
+}
+
+function returnFalse(s){
+
+//if you want to do the search, use this line
+doSearch(s);
+
+//this line should always be here!!
+return false;
+}
+
+// -->
+</script>
+
+<script language="JavaScript" type="text/javascript">
+<!-- 
+document._domino_target = "_self";
+function _doClick(v, o, t) {
+  var url="/palmetto/Beneficiaries.nsf/Home/Beneficiaries+Hospital+Insurance+Part+A+North+Carolina+Home?OpenDocument&Click=" + v;
+  if (o.href != null)
+    o.href = url;
+  else {
+    if (t == null)
+      t = document._domino_target;
+    window.open(url, t);
+  }
+
+}
+// -->
+</script>
+
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+function launchwin(url)
+{
+    var left = (window.screen.width/2)-(500/2);
+    var top = (window.screen.height/2)-(500/2);
+    var load = window.open(url,'image', 'scrollbars=no,menubar=no,height=500,width=500,resizable=yes,toolbar=no,location=no,status=no,top='+top+',left='+left);
+}
+//]]>
+</script>
+
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+           
+    var tabLinks = new Array();
+    var contentDivs = new Array();
+
+    function init() 
+    {
+
+    if (document.getElementById('tabs')) {
+        
+      var tabListItems = document.getElementById('tabs').childNodes;
+      
+      for ( var i = 0; i < tabListItems.length; i++ ) {
+        if ( tabListItems[i].nodeName == "LI" ) {
+          var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+          var id = getHash( tabLink.getAttribute('href') );
+          tabLinks[id] = tabLink;
+          contentDivs[id] = document.getElementById( id );
+        }
+      }
+
+      var i = 0;
+
+      for ( var id in tabLinks ) {
+        tabLinks[id].onclick = showTab;
+        tabLinks[id].onfocus = function() { this.blur() };
+        if ( i == 0 ) tabLinks[id].className = 'selected';
+        i++;
+      }
+
+      var i = 0;
+
+      for ( var id in contentDivs ) {
+        if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+        i++;
+      }
+
+     }
+    }
+
+    function showTab() {
+      var selectedId = getHash( this.getAttribute('href') );
+
+      for ( var id in contentDivs ) {
+        if ( id == selectedId ) {
+          tabLinks[id].className = 'selected';
+          contentDivs[id].className = 'tabContent';
+        } else {
+          tabLinks[id].className = '';
+          contentDivs[id].className = 'tabContent hide';
+        }
+      }
+
+      return false;
+    }
+
+    function getFirstChildWithTagName( element, tagName ) {
+      for ( var i = 0; i < element.childNodes.length; i++ ) {
+        if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+      }
+    }
+
+    function getHash( url ) {
+      var hashPos = url.lastIndexOf ( '#' );
+      return url.substring( hashPos + 1 );
+    }
+
+//]]>
+</script>
+
+</head>
+
+<body id="default" onload="init()">
+
+<div id="center">
+<div id="header">
+  <p><a href="#content">Jump to content</a></p>
+  <a href="https://www.dmepdac.com/index.html"><img src="https://www.dmepdac.com/dmecsapp/jsp/images/header.jpg" alt="Noridian Healthcare Solutions LLC &ndash; Pricing, Data Analysis and Coding"/></a>
+  <hr/>
+</div>
+<!--
+
+<div id="bread">
+
+  <ol>
+    <li><a href="https://www.dmepdac.com/dmecsapp/do/search">Home</a> / </li>
+    <li class="last-child">DMECS Application</li>
+  </ol>
+
+</div>
+
+<div id="content">
+    
+
+
+
+
+<SCRIPT SRC="https://www.dmepdac.com/dmecsapp/jsp/javascript/datevalidator.js">
+document.write("Included JS file not found");
+</SCRIPT>
+
+<script language="javascript">
+	function validateProductSearchForm() {
+		var form = document.productsearchForm;
+		var msg = "";
+		msg = "The query will return all products.\n" +
+			  "This may take several seconds or longer to run.\n" +
+			  "Do you want to continue?";
+		return confirm(msg);
+	}
+</script>
+<div id="content"> 
+	
+	
+	
+	<table class="formLayout" border="0" width="440">
+    <form name="hcpcssearchForm" method="post" action="https://www.dmepdac.com/dmecsapp/do/hcpcssearch">
+      
+		<tr>
+    	<td vAlign="top" height="43" colspan="5">
+    		<h1>Search for codes or fees</h1>
+    	</td>
+		</tr>
+    <tr>
+      <td class="headRow" colspan="3"><h3>Search by HCPCS Information</h3></td>
+    </tr>
+    <tr>
+			<td colspan="2">
+				<table>
+					<tr>
+						<td>&nbsp;</td>
+						<td>
+							<input type="radio" name="current" value="on" checked="checked" style=""><span class="redHigh">Active HCPCS Codes</span>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>&nbsp;</td>
+                        <td>
+							<input type="radio" name="current" value="off"><span class="redHigh">All HCPCS Codes</span>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		
+        <tr>
+          <td>
+          	<LABEL for="hcpcsKeyword"><font size="2">Keyword(s)</font></LABEL>
+          </td>
+          <td>
+          	<LABEL for="hcpcsCode"><font size="2">HCPCS Code *</font></LABEL>
+          </td>
+          <td rowspan="2" align="right">
+          	<div class="rightAlign"><input type="image" name="hcpcssearchsubmit" src="https://www.dmepdac.com/dmecsapp/jsp/images/button_go.gif" id="hcpcssearchsubmit" alt="Start searching for HCPCS Information by either keywords in it's description or a part of it's HCPCScode"></div>
+          </td>
+	    </tr>
+		<tr>
+          <td>
+          	<input type="text" name="hcpcsKeyword" value="" id="hcpcskeyword">
+          	
+          </td>
+          <td>
+          	<input type="text" name="hcpcsCode" maxlength="5" size="5" value="" id="hcpcscode">
+          	
+          </td>	
+		</tr>
+        <tr>
+          <td colspan="3" align="right">
+         *<font size="1"><i>All entries are treated as wildcards</i></font> 
+          </td>
+        </tr>
+       </form>
+      </table>      
+      
+    
+    <table class="formLayout" border="1" width="440">
+    	<form name="modifierForm" method="post" action="https://www.dmepdac.com/dmecsapp/do/modifierSearch">
+    	<tr>
+      	<td class="headRow" colspan="3"><h3>Search for Modifier</h3></td>
+      </tr>
+      <tr>
+      	<td><label for="modifier"><font size="2">Modifier *</font></label></td>
+    		<td><label for="description"><font size="2">Description *</font></label></td>
+      </tr>
+    	<tr>
+    		<td>
+    			<input type="text" name="modifier" value="">
+    			
+    		</td>
+    		<td>
+    			<input type="text" name="description" value="">
+    			
+    		</td>
+    		<td align="right" valign="top">
+          	<div class="rightAlign"><input type="image" name="modifiersearchsubmit" src="https://www.dmepdac.com/dmecsapp/jsp/images/button_go.gif" id="modifiersearchsubmit" alt="Search for HCPCS modifiers by modifier code or description"></div>
+        </td>
+			</tr>
+			<tr>
+      	<td colspan="3" align="right">
+        	*<font size="1"><i>All entries are treated as wildcards</i></font> 
+        </td>
+      </tr>
+    	</form>
+    </table>
+    
+	       
+      <table class="formLayout" border="1" width="440">
+      	 <form name="feesearchForm" id="feesearchform" method="post" action="https://www.dmepdac.com/dmecsapp/do/feesearch">
+      <input type="hidden" name="state" value="">
+      	<tr>
+          <td class="headRow" colspan="3"><h3>Search for Fee Schedule</h3></td>
+        </tr>
+        <tr>
+          <td valign="top">
+          	<LABEL for="feehcpcscode"><font size="2">HCPCS Code **</font></LABEL>
+          </td>
+          <td valign="top">
+          	<LABEL for="scheduleeffectivedate"><font size="2">Date of Service **</font><br><font size="1">&nbsp;&nbsp;MM/DD/YYYY</font></LABEL>
+          </td>
+          <td rowspan="2" align="right">
+          	<div class="rightAlign"><input type="image" name="feesearchsubmit" src="https://www.dmepdac.com/dmecsapp/jsp/images/button_go.gif" id="feesearchsubmit" alt="Start searching for a <b>Fee Schedule</b> by either it's HCPCScode or the date of service for this fee schedule"></div>
+          </td>
+        </tr>
+		<tr>
+          <td>          	
+          	<input type="text" name="hcpcsCode" maxlength="5" size="5" value="" id="feehcpcscode">
+          	
+          </td>
+          <td>         	
+          	<input type="text" name="scheduleeffectivedate" maxlength="10" size="10" value="02/27/2017" onblur="this.value = formatDate(parseDate(this.value),'MM/dd/yyyy');" id="scheduleeffectivedate">
+          	
+          </td>
+		</tr>
+        <tr>
+          <td colspan="3" align="right">
+          **<font size="1"><i>Required Fields</i></font> 
+          </td>
+        </tr>
+        <tr>
+			<td colspan="3" width="550">
+				<span class="redHigh">
+					<i><b>Note: The start and end dates given for each HCPCS code reflect the most current quarterly fee schedule for the given year.</b></i>
+				</span>
+			<br />
+			</td>
+		</tr>
+        <tr>
+            <td class="cmsLink" colspan="3" align="left">
+               <span><a href="http://www.cms.gov/DMEPOSFeeSched/LSDMEPOSFEE/list.asp">CMS Fee Schedule (includes ceiling and floor information)</a></span>       
+            </td>
+        </tr>
+        </form>
+      </table>  
+
+      
+      -->
+      <table class="formLayout" width="550">
+      	<form name="productsearchForm" method="post" action="https://www.dmepdac.com/dmecsapp/do/productsearch" target="_blank">
+        <tr><td><table width="440">
+        <tr>
+          <td class="headRow" colspan="3"><h3>Search DMEPOS Product Classification List</h3></td>
+        </tr>
+        
+        <tr>
+          <td>
+          	<LABEL for="manufacturer"><font size="2">Manufacturer/Distributor *</font></LABEL>
+          </td>
+          <td>
+          	<LABEL for="producthcpcscode"><font size="2">HCPCS Code *</font></LABEL>
+          </td>
+          <td>
+          </td>
+        </tr>
+		<tr>
+          <td>
+          	<input type="text" name="manufacturer" maxlength="25" size="20" value="" id="manufacturer">
+          </td>
+          <td>
+			<input type="text" name="hcpcsCode" maxlength="5" size="5" value="" id="producthcpcscode">
+          </td>
+		  <td rowspan="2" align="right">
+			<div class="rightAlign"><input type="image" name="productsearchsubmit" src="https://www.dmepdac.com/dmecsapp/jsp/images/button_go.gif" alt="Start searching for Product Information by it's Manufacturer name, HcpcsCode, Product name, or Model Number"></div>
+		  </td>
+	
+
+		</tr>
+        <tr>
+          <td>
+          	<LABEL for="product_name"><font size="2">Product Name*</font></LABEL>
+          </td>
+          <td>
+          	<LABEL for="model_number"><font size="2">Product/Model *</font></LABEL>
+          </td>
+        </tr>
+		<tr>
+          <td>
+          	<input type="text" name="productName" maxlength="25" size="20" value="" id="product_name">
+          	
+            
+          </td>
+          <td>
+          	<input type="text" name="modelNumber" maxlength="20" size="12" value="" id="model_number">
+          	
+            
+          </td>
+		</tr>
+        </table></td></tr>
+        
+		<!--
+        <tr><td><table width="550">
+        <tr>
+            <td>
+                <LABEL for="policy_grp"><font size="2">Classification</font></LABEL>&nbsp;
+            </td>
+            <td></td>   
+        </tr>
+        <tr>
+            <td>
+          	     <select name="policyGroup" multiple="multiple" size="5" id="policy_grp">
+          		    <option value="105">Automatic External Defibrillator</option>
+<option value="110">Breast Prostheses</option>
+<option value="120">CPAP</option>
+<option value="130">CPM Device</option>
+<option value="140">Canes/Crutches</option>
+<option value="150">Commodes/Bed Pans/Urinals</option>
+<option value="160">Diabetic Shoes</option>
+<option value="170">Dialysis Supplies &amp; Equipment</option>
+<option value="180">Dynamic Splint</option>
+<option value="190">Enteral Nutrition</option>
+<option value="200">Epoetin</option>
+<option value="210">Eye Prostheses</option>
+<option value="220">Facial Prostheses</option>
+<option value="230">Glucose Monitor</option>
+<option value="243">HFCWO Device</option>
+<option value="240">Heat/Cold Application</option>
+<option value="250">Hospital Beds/Accessories</option>
+<option value="260">IPPB</option>
+<option value="270">Immunosuppressive Drugs</option>
+<option value="280">Impotence Aid</option>
+<option value="290">Infusion Pumps &amp; Related Drugs</option>
+<option value="265">Intravenous Immune Globulin</option>
+<option value="297">LSO</option>
+<option value="300">Lenses</option>
+<option value="310">Lower Limb Orthoses</option>
+<option value="320">Lower Limb Prostheses</option>
+<option value="326">Mech In-exsufflation Devices</option>
+<option value="330">Nebulizers &amp; Related Drugs</option>
+<option value="333">Negative Pressure Wound Therapy</option>
+<option value="340">Oral Anti-Cancer Drugs</option>
+<option value="342">Oral Anti-Emetic Drugs</option>
+<option value="350">Orthopedic Footwear</option>
+<option value="360">Orthosis/Prosthesis Repair</option>
+<option value="370">Osteogenesis Stimulator</option>
+<option value="380">Ostomy Supplies</option>
+<option value="390">Other Neuromuscular Stimulators</option>
+<option value="400">Oxygen Supplies/Equipment</option>
+<option value="410">POV</option>
+<option value="420">Parenteral Nutrition</option>
+<option value="430">Patient Lift</option>
+<option value="440">Pneumatic Compression Device</option>
+<option value="450">Repairs/DME</option>
+<option value="455">Respiratory Assist Device</option>
+<option value="457">SIO</option>
+<option value="458">SO</option>
+<option value="460">Seat Lift Mechanism</option>
+<option value="467">Speech Generating Devices</option>
+<option value="480">Suction Pump</option>
+<option value="490">Support Surfaces</option>
+<option value="500">Surgical Dressings</option>
+<option value="510">TENS</option>
+<option value="512">TLSO</option>
+<option value="520">Tracheostomy Supplies</option>
+<option value="530">Traction Equipment</option>
+<option value="537">Ultraviolet Devices</option>
+<option value="540">Upper Limb Orthoses</option>
+<option value="550">Upper Limb Prostheses</option>
+<option value="560">Urological Supplies</option>
+<option value="570">Ventilators</option>
+<option value="580">Voice Prostheses</option>
+<option value="590">Walkers</option>
+<option value="602">Wheelchairs Manual</option>
+<option value="603">Wheelchairs Motorized</option>
+<option value="604">Wheelchairs Options/Accessories</option>
+<option value="606">Wheelchairs Seating</option>
+<option value="610">_Misc DMEPOS_</option>
+<option value="612">_Misc Drugs_</option>
+<option value="616">_Misc Respiratory Devices_</option>
+<option value="620">_Routinely Denied Items_</option>
+<option value="630">{N/A}</option></select>
+            </td>
+            <td class="vtop">
+			-->
+                <a href="../temp/productlist.csv">Click to Create Complete Product Listing</a>
+            </td>
+        </tr>
+        <tr>
+            <td>*<font size="1"><i>All entries are treated as wildcards</i></font></td>
+        </tr>
+        </table></td></tr>
+        
+   </form>
+   <form name="productsearchForm" method="post" action="https://www.dmepdac.com/dmecsapp/do/productsearch" target="_blank">
+        <tr><td><table width="440">
+        <tr>
+          <td class="headRow" colspan="3"><h3>Search DMEPOS Product Classification List</h3></td>
+        </tr>
+        
+        <tr>
+          <td>
+          	<LABEL for="manufacturer"><font size="2">Manufacturer/Distributor *</font></LABEL>
+          </td>
+          <td>
+          	<LABEL for="producthcpcscode"><font size="2">HCPCS Code *</font></LABEL>
+          </td>
+          <td>
+          </td>
+        </tr>
+		<tr>
+          <td>
+          	<input type="text" name="manufacturer" maxlength="25" size="20" value="" id="manufacturer">
+          </td>
+          <td>
+			<input type="text" name="hcpcsCode" maxlength="5" size="5" value="" id="producthcpcscode">
+          </td>
+		  <td rowspan="2" align="right">
+			<div class="rightAlign"><input type="image" name="productsearchsubmit" src="https://www.dmepdac.com/dmecsapp/jsp/images/button_go.gif" alt="Start searching for Product Information by it's Manufacturer name, HcpcsCode, Product name, or Model Number"></div>
+		  </td>
+
+		</tr>
+        <tr>
+          <td>
+          	<LABEL for="product_name"><font size="2">Product Name*</font></LABEL>
+          </td>
+          <td>
+          	<LABEL for="model_number"><font size="2">Product/Model *</font></LABEL>
+          </td>
+        </tr>
+		<tr>
+          <td>
+          	<input type="text" name="productName" maxlength="25" size="20" value="" id="product_name">
+          	
+            
+          </td>
+          <td>
+          	<input type="text" name="modelNumber" maxlength="20" size="12" value="" id="model_number">
+          	
+            
+          </td>
+		</tr>
+        </table></td></tr>
+        
+		<!--
+        <tr><td><table width="550">
+        <tr>
+            <td>
+                <LABEL for="policy_grp"><font size="2">Classification</font></LABEL>&nbsp;
+            </td>
+            <td></td>   
+        </tr>
+        <tr>
+            <td>
+          	     <select name="policyGroup" multiple="multiple" size="5" id="policy_grp">
+          		    <option value="105">Automatic External Defibrillator</option>
+<option value="110">Breast Prostheses</option>
+<option value="120">CPAP</option>
+<option value="130">CPM Device</option>
+<option value="140">Canes/Crutches</option>
+<option value="150">Commodes/Bed Pans/Urinals</option>
+<option value="160">Diabetic Shoes</option>
+<option value="170">Dialysis Supplies &amp; Equipment</option>
+<option value="180">Dynamic Splint</option>
+<option value="190">Enteral Nutrition</option>
+<option value="200">Epoetin</option>
+<option value="210">Eye Prostheses</option>
+<option value="220">Facial Prostheses</option>
+<option value="230">Glucose Monitor</option>
+<option value="243">HFCWO Device</option>
+<option value="240">Heat/Cold Application</option>
+<option value="250">Hospital Beds/Accessories</option>
+<option value="260">IPPB</option>
+<option value="270">Immunosuppressive Drugs</option>
+<option value="280">Impotence Aid</option>
+<option value="290">Infusion Pumps &amp; Related Drugs</option>
+<option value="265">Intravenous Immune Globulin</option>
+<option value="297">LSO</option>
+<option value="300">Lenses</option>
+<option value="310">Lower Limb Orthoses</option>
+<option value="320">Lower Limb Prostheses</option>
+<option value="326">Mech In-exsufflation Devices</option>
+<option value="330">Nebulizers &amp; Related Drugs</option>
+<option value="333">Negative Pressure Wound Therapy</option>
+<option value="340">Oral Anti-Cancer Drugs</option>
+<option value="342">Oral Anti-Emetic Drugs</option>
+<option value="350">Orthopedic Footwear</option>
+<option value="360">Orthosis/Prosthesis Repair</option>
+<option value="370">Osteogenesis Stimulator</option>
+<option value="380">Ostomy Supplies</option>
+<option value="390">Other Neuromuscular Stimulators</option>
+<option value="400">Oxygen Supplies/Equipment</option>
+<option value="410">POV</option>
+<option value="420">Parenteral Nutrition</option>
+<option value="430">Patient Lift</option>
+<option value="440">Pneumatic Compression Device</option>
+<option value="450">Repairs/DME</option>
+<option value="455">Respiratory Assist Device</option>
+<option value="457">SIO</option>
+<option value="458">SO</option>
+<option value="460">Seat Lift Mechanism</option>
+<option value="467">Speech Generating Devices</option>
+<option value="480">Suction Pump</option>
+<option value="490">Support Surfaces</option>
+<option value="500">Surgical Dressings</option>
+<option value="510">TENS</option>
+<option value="512">TLSO</option>
+<option value="520">Tracheostomy Supplies</option>
+<option value="530">Traction Equipment</option>
+<option value="537">Ultraviolet Devices</option>
+<option value="540">Upper Limb Orthoses</option>
+<option value="550">Upper Limb Prostheses</option>
+<option value="560">Urological Supplies</option>
+<option value="570">Ventilators</option>
+<option value="580">Voice Prostheses</option>
+<option value="590">Walkers</option>
+<option value="602">Wheelchairs Manual</option>
+<option value="603">Wheelchairs Motorized</option>
+<option value="604">Wheelchairs Options/Accessories</option>
+<option value="606">Wheelchairs Seating</option>
+<option value="610">_Misc DMEPOS_</option>
+<option value="612">_Misc Drugs_</option>
+<option value="616">_Misc Respiratory Devices_</option>
+<option value="620">_Routinely Denied Items_</option>
+<option value="630">{N/A}</option></select>
+            </td>
+            <td class="vtop">
+			-->
+                <a href="../temp/productlist.csv">Click to Create Complete Product Listing</a>
+            </td>
+        </tr>
+        <tr>
+            <td>*<font size="1"><i>All entries are treated as wildcards</i></font></td>
+        </tr>
+        </table></td></tr>
+        
+   </form>
+   </table> 
+   <form name="productsearchForm" method="post" action="https://www.dmepdac.com/dmecsapp/do/productsearch" target="_blank">
+        <tr><td><table width="440">
+        <tr>
+          <td class="headRow" colspan="3"><h3>Search DMEPOS Product Classification List</h3></td>
+        </tr>
+        
+        <tr>
+          <td>
+          	<LABEL for="manufacturer"><font size="2">Manufacturer/Distributor *</font></LABEL>
+          </td>
+          <td>
+          	<LABEL for="producthcpcscode"><font size="2">HCPCS Code *</font></LABEL>
+          </td>
+          <td>
+          </td>
+        </tr>
+		<tr>
+          <td>
+          	<input type="text" name="manufacturer" maxlength="25" size="20" value="" id="manufacturer">
+          </td>
+          <td>
+			<input type="text" name="hcpcsCode" maxlength="5" size="5" value="" id="producthcpcscode">
+          </td>
+		  <td rowspan="2" align="right">
+			<div class="rightAlign"><input type="image" name="productsearchsubmit" src="https://www.dmepdac.com/dmecsapp/jsp/images/button_go.gif" alt="Start searching for Product Information by it's Manufacturer name, HcpcsCode, Product name, or Model Number"></div>
+		  </td>
+
+		</tr>
+        <tr>
+          <td>
+          	<LABEL for="product_name"><font size="2">Product Name*</font></LABEL>
+          </td>
+          <td>
+          	<LABEL for="model_number"><font size="2">Product/Model *</font></LABEL>
+          </td>
+        </tr>
+		<tr>
+          <td>
+          	<input type="text" name="productName" maxlength="25" size="20" value="" id="product_name">
+          	
+            
+          </td>
+          <td>
+          	<input type="text" name="modelNumber" maxlength="20" size="12" value="" id="model_number">
+          	
+            
+          </td>
+		</tr>
+        </table></td></tr>
+        
+		<!--
+        <tr><td><table width="550">
+        <tr>
+            <td>
+                <LABEL for="policy_grp"><font size="2">Classification</font></LABEL>&nbsp;
+            </td>
+            <td></td>   
+        </tr>
+        <tr>
+            <td>
+          	     <select name="policyGroup" multiple="multiple" size="5" id="policy_grp">
+          		    <option value="105">Automatic External Defibrillator</option>
+<option value="110">Breast Prostheses</option>
+<option value="120">CPAP</option>
+<option value="130">CPM Device</option>
+<option value="140">Canes/Crutches</option>
+<option value="150">Commodes/Bed Pans/Urinals</option>
+<option value="160">Diabetic Shoes</option>
+<option value="170">Dialysis Supplies &amp; Equipment</option>
+<option value="180">Dynamic Splint</option>
+<option value="190">Enteral Nutrition</option>
+<option value="200">Epoetin</option>
+<option value="210">Eye Prostheses</option>
+<option value="220">Facial Prostheses</option>
+<option value="230">Glucose Monitor</option>
+<option value="243">HFCWO Device</option>
+<option value="240">Heat/Cold Application</option>
+<option value="250">Hospital Beds/Accessories</option>
+<option value="260">IPPB</option>
+<option value="270">Immunosuppressive Drugs</option>
+<option value="280">Impotence Aid</option>
+<option value="290">Infusion Pumps &amp; Related Drugs</option>
+<option value="265">Intravenous Immune Globulin</option>
+<option value="297">LSO</option>
+<option value="300">Lenses</option>
+<option value="310">Lower Limb Orthoses</option>
+<option value="320">Lower Limb Prostheses</option>
+<option value="326">Mech In-exsufflation Devices</option>
+<option value="330">Nebulizers &amp; Related Drugs</option>
+<option value="333">Negative Pressure Wound Therapy</option>
+<option value="340">Oral Anti-Cancer Drugs</option>
+<option value="342">Oral Anti-Emetic Drugs</option>
+<option value="350">Orthopedic Footwear</option>
+<option value="360">Orthosis/Prosthesis Repair</option>
+<option value="370">Osteogenesis Stimulator</option>
+<option value="380">Ostomy Supplies</option>
+<option value="390">Other Neuromuscular Stimulators</option>
+<option value="400">Oxygen Supplies/Equipment</option>
+<option value="410">POV</option>
+<option value="420">Parenteral Nutrition</option>
+<option value="430">Patient Lift</option>
+<option value="440">Pneumatic Compression Device</option>
+<option value="450">Repairs/DME</option>
+<option value="455">Respiratory Assist Device</option>
+<option value="457">SIO</option>
+<option value="458">SO</option>
+<option value="460">Seat Lift Mechanism</option>
+<option value="467">Speech Generating Devices</option>
+<option value="480">Suction Pump</option>
+<option value="490">Support Surfaces</option>
+<option value="500">Surgical Dressings</option>
+<option value="510">TENS</option>
+<option value="512">TLSO</option>
+<option value="520">Tracheostomy Supplies</option>
+<option value="530">Traction Equipment</option>
+<option value="537">Ultraviolet Devices</option>
+<option value="540">Upper Limb Orthoses</option>
+<option value="550">Upper Limb Prostheses</option>
+<option value="560">Urological Supplies</option>
+<option value="570">Ventilators</option>
+<option value="580">Voice Prostheses</option>
+<option value="590">Walkers</option>
+<option value="602">Wheelchairs Manual</option>
+<option value="603">Wheelchairs Motorized</option>
+<option value="604">Wheelchairs Options/Accessories</option>
+<option value="606">Wheelchairs Seating</option>
+<option value="610">_Misc DMEPOS_</option>
+<option value="612">_Misc Drugs_</option>
+<option value="616">_Misc Respiratory Devices_</option>
+<option value="620">_Routinely Denied Items_</option>
+<option value="630">{N/A}</option></select>
+            </td>
+            <td class="vtop">
+			-->
+                <a href="../temp/productlist.csv">Click to Create Complete Product Listing</a>
+            </td>
+        </tr>
+        <tr>
+            <td>*<font size="1"><i>All entries are treated as wildcards</i></font></td>
+        </tr>
+        </table></td></tr>
+        
+   </form>
+   
+    
+</div>
+
+</div>
+
+
+ 
+</div>
+</div>
+</body>   
+
+</html>
+    
